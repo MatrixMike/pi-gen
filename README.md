@@ -65,12 +65,12 @@ The following environment variables are supported:
    **CAUTION**: If your working directory is on an NTFS partition you probably won't be able to build. Make sure this is a proper Linux filesystem.
 <ol>
 <li>
- * `DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)
+`DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)
 
    Output directory for target system images and NOOBS bundles.
 </li>
 <li>
- * `USE_QEMU` (Default: `"0"`)
+`USE_QEMU` (Default: `"0"`)
 
    Setting to '1' enables the QEMU mode - creating an image that can be mounted via QEMU for an emulated
    environment. These images include "-qemu" in the image file name.
@@ -101,25 +101,25 @@ The following process is followed to build images:
    There are a number of different files and directories which can be used to
    control different parts of the build process:
 
-     - **00-run.sh** - A unix shell script. Needs to be made executable for it to run.
+<ol><li> - **00-run.sh** - A unix shell script. Needs to be made executable for it to run.
 
-     - **00-run-chroot.sh** - A unix shell script which will be run in the chroot
+</li><li>     - **00-run-chroot.sh** - A unix shell script which will be run in the chroot
        of the image build directory. Needs to be made executable for it to run.
 
-     - **00-debconf** - Contents of this file are passed to debconf-set-selections
+</li><li>     - **00-debconf** - Contents of this file are passed to debconf-set-selections
        to configure things like locale, etc.
 
-     - **00-packages** - A list of packages to install. Can have more than one, space
+</li><li>     - **00-packages** - A list of packages to install. Can have more than one, space
        separated, per line.
 
-     - **00-packages-nr** - As 00-packages, except these will be installed using
+</li><li>     - **00-packages-nr** - As 00-packages, except these will be installed using
        the ```--no-install-recommends -y``` parameters to apt-get.
 
-     - **00-patches** - A directory containing patch files to be applied, using quilt.
+</li><li>     - **00-patches** - A directory containing patch files to be applied, using quilt.
        If a file named 'EDIT' is present in the directory, the build process will
        be interrupted with a bash session, allowing an opportunity to create/revise
        the patches.
-
+</li></ol>
   * If the stage directory contains files called "EXPORT_NOOBS" or "EXPORT_IMAGE" then
     add this stage to a list of images to generate
 
