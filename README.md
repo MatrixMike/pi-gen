@@ -63,17 +63,19 @@ The following environment variables are supported:
    Raspbian.
    
    **CAUTION**: If your working directory is on an NTFS partition you probably won't be able to build. Make sure this is a proper Linux filesystem.
-
+<ol>
+<li>
  * `DEPLOY_DIR`  (Default: `"$BASE_DIR/deploy"`)
 
    Output directory for target system images and NOOBS bundles.
-
+</li>
+<li>
  * `USE_QEMU` (Default: `"0"`)
 
    Setting to '1' enables the QEMU mode - creating an image that can be mounted via QEMU for an emulated
    environment. These images include "-qemu" in the image file name.
-
-
+</li>
+</ol>
 A simple example for building Raspbian:
 
 ```bash
